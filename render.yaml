@@ -2,8 +2,7 @@ services:
   - type: web
     name: challenge-app
     env: docker
-    docker:
-      dockerfile: ./nginx/Dockerfile
+    dockerfile: ./nginx/Dockerfile
     envVars:
       - key: NODE_ENV
         value: production
@@ -12,8 +11,7 @@ services:
   - type: web  
     name: challenge-backend
     env: docker
-    docker:
-      dockerfile: ./backend/Dockerfile
+    dockerfile: ./backend/Dockerfile
     envVars:
       - key: NODE_ENV
         value: production
@@ -24,8 +22,7 @@ services:
   - type: web
     name: challenge-frontend
     env: docker
-    docker:
-      dockerfile: ./frontend/Dockerfile
+    dockerfile: ./frontend/Dockerfile
     envVars:
       - key: NODE_ENV
         value: production
