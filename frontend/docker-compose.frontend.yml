@@ -3,6 +3,8 @@ services:
     build: 
       context: .  # ← Текущая папка frontend
       dockerfile: Dockerfile
+      args:
+        - NEXT_PUBLIC_API_URL=http://localhost  # ← Передаем как ARG
     ports:
       - "3000:3000"
     environment:

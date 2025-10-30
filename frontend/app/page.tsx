@@ -202,7 +202,7 @@ export default function Home() {
           )}
 
           {/* Информация о API */}
-          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+          {/* <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
             <h3 className="font-semibold mb-2">Доступные API endpoints:</h3>
             <ul className="text-sm space-y-1">
               <li>GET /api/challenges - список челленджей</li>
@@ -212,7 +212,7 @@ export default function Home() {
               <li>POST /api/challenges/:id/join - присоединиться</li>
               <li>NEXT_PUBLIC_API_URL: {process.env.NEXT_PUBLIC_API_URL}</li>
             </ul>
-          </div>
+          </div> */}
         </div>
 
         {/* Список челленджей */}
@@ -267,10 +267,10 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="mt-8 text-center text-gray-600">
+      {/* <div className="mt-8 text-center text-gray-600">
         <p>Фронтенд: Next.js (localhost:3000) | Бэкенд: NestJS (localhost:3001)</p>
         <p className="text-sm mt-2">In-Memory база данных - данные сохраняются до перезапуска сервера</p>
-      </div>
+      </div> */}
     </main>
   );
 }
