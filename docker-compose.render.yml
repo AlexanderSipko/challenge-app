@@ -15,12 +15,14 @@ services:
     environment:
       - NODE_ENV=production
       - PORT=3001
-      - FRONTEND_URL=https://твой-домен.render.com
+      - FRONTEND_URL=https://challenge-app-izfz.onrender.com
 
   frontend:
-    build: ./frontend  
+    build: ./frontend
+    args:
+        - NEXT_PUBLIC_API_URL=https://challenge-app-izfz.onrender.com  # ← Передаем как ARG
     environment:
       - NODE_ENV=production
-      - NEXT_PUBLIC_API_URL=https://твой-домен.render.com
+      - NEXT_PUBLIC_API_URL=https://challenge-app-izfz.onrender.com
     depends_on:
       - backend
