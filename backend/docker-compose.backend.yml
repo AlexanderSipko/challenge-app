@@ -1,0 +1,12 @@
+services:
+  backend:
+    build: 
+      context: .  # ← Текущая папка
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=development
+      - PORT=3001
+      - FRONTEND_URL=http://localhost:3000
+    command: npm run start:prod

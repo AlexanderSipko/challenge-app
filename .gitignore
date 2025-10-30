@@ -1,0 +1,42 @@
+# Docker
+docker-compose.override.yml
+.dockerignore
+
+# Логи
+*.log
+logs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.production
+.env.production.local
+
+# Node.js (на всякий случай)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Бэкенд
+backend/dist/
+backend/.env*
+
+# Фронтенд  
+frontend/.next/
+frontend/out/
+frontend/.env*
+
+# Nginx
+nginx/logs/

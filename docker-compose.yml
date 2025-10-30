@@ -1,0 +1,44 @@
+services:
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - backend
+      - frontend
+    networks:
+      - challenge-network
+
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      - NODE_ENV=production  # ← Меняем на production
+      - PORT=3001
+      - FRONTEND_URL=http://localhost
+    # Убираем volumes для продакшена
+    command: npm run start:prod  # ← ЗАПУСКАЕМ сервер!
+    networks:
+      - challenge-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        - NEXT_PUBLIC_API_URL=http://localhost  # ← Передаем как ARG
+    environment:
+      - NODE_ENV=production  # ← Меняем на production
+    # Убираем volumes для продакшена
+    command: npm start  # ← ЗАПУСКАЕМ сервер!
+    depends_on:
+      - backend
+    networks:
+      - challenge-network
+
+networks:
+  challenge-network:
+    driver: bridge
