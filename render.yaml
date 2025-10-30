@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: challenge-app
+    env: docker
+    docker:
+      dockerfile: ./nginx/Dockerfile
+    envVars:
+      - key: NODE_ENV
+        value: production
+    ports:
+      - port: 80
+        http: true
+
+  - type: web  
+    name: challenge-backend
+    env: docker
+    docker:
+      dockerfile: ./backend/Dockerfile
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3001
+    port: 3001
+
+  - type: web
+    name: challenge-frontend
+    env: docker
+    docker:
+      dockerfile: ./frontend/Dockerfile
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_PUBLIC_API_URL
+        value: https://challenge-backend.onrender.com/api
+    port: 3000
